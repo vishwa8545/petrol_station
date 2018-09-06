@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<div >
+	{% for st in stations %}
+
+	<h2>Station Name:{{st.station_type}}</h2>
+	<h1>Fuiel(in Liters):{{st.fueil_level}}</h1>
+	<form action=" /petrol/update/" method="POST">
+		{% csrf_token %}
+		<input type="text" name="st_id" value="{{ st.pk }}" hidden>
+		<input type="text" name="op_type" value = "add" hidden>
+		<input type="text" name="st_name" value="{{ st.station_type }}" hidden>
+		<input type="number" name="sf_value" value="{{ st.fueil_level }}" hidden>
+
+		<input type="number" name="f_value" placeholder="liters filled">
+		<input type="submit" value="Add">
+
+	</form>
+	<hr>
+	<form action=" /petrol/update/" method="POST">
+		{% csrf_token %}
+		<input type="text" name="op_type" value = "sold" hidden>
+		<input type="text" name="st_id" value="{{ st.pk }}" hidden>
+		<input type="text" name="st_name" value="{{ st.station_type }}" hidden>
+		<input type="number" name="sf_value" value="{{ st.fueil_level }}" hidden>
+
+		<input type="number" name="f_value" placeholder="liters sold">
+		<input type="submit" value="Sold">
+
+	</form>
+
+
+	
+	{% endfor %}
+
+</body>
+</html>
