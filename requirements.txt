@@ -1,0 +1,6 @@
+click==6.7
+Django==1.11.3
+Jinja2==2.10
+python-dateutil==2.7.3
+pytz==2018.
+Werkzeug==0.14.1
