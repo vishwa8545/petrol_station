@@ -12,8 +12,8 @@
 	<h1>Fuiel(in Liters):{{st.fueil_level}}</h1>
 	<form action=" /petrol/update/" method="POST">
 		{% csrf_token %}
-		<input type="text" name="st_id" value="{{ st.pk }}" hidden>
-		<input type="text" name="op_type" value = "add" hidden>
+		<input type="hidden" name="st_id" value="{{ st.pk }}" hidden>
+		<input type="hidden" name="op_type" value = "add" hidden>
 		<input type="text" name="st_name" value="{{ st.station_type }}" hidden>
 		<input type="number" name="sf_value" value="{{ st.fueil_level }}" hidden>
 
@@ -21,11 +21,11 @@
 		<input type="submit" value="Add">
 
 	</form>
-	<hr>
+
 	<form action=" /petrol/update/" method="POST">
 		{% csrf_token %}
-		<input type="text" name="op_type" value = "sold" hidden>
-		<input type="text" name="st_id" value="{{ st.pk }}" hidden>
+		<input type="hidden name="op_type" value = "sold" hidden>
+		<input type="hidden" name="st_id" value="{{ st.pk }}" hidden>
 		<input type="text" name="st_name" value="{{ st.station_type }}" hidden>
 		<input type="number" name="sf_value" value="{{ st.fueil_level }}" hidden>
 
@@ -33,7 +33,7 @@
 		<input type="submit" value="Sold">
 
 	</form>
-
+<hr>
 
 	
 	{% endfor %}
