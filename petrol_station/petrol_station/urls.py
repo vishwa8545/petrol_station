@@ -20,4 +20,5 @@ import p_station
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^petrol/',include('p_station.urls')),
+    url(r'',include('p_station.urls')),
 ]
